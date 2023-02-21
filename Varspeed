@@ -3,12 +3,12 @@
 #define HG7881_B_IB 11 // D11 --> Motor B Input B --> MOTOR B -
  
 // functional connections
-#define MOTOR_B_PWM HG7881_B_IA // Motor B PWM Speed
-#define MOTOR_B_DIR HG7881_B_IB // Motor B Direction
+#define MOTOR_B_PWM HG7881_B_IA // 
+#define MOTOR_B_DIR HG7881_B_IB // 
 
 
-int pin1 2 // motor #A +
-int pin2 3 // motor #A –
+int pin1 2 // Motor Direction #A
+int pin2 3 // Motor PWM Speed #A
 
 
 // Setting PWM properties
