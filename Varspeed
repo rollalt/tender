@@ -1,11 +1,29 @@
-#define pin1 2 // motor #1 +
-#define pin2 3 // motor #1 –
-#define pw1 9 // motor #1 pwm
+int pin1 2 // motor #1 +
+int pin2 3 // motor #1 –
+int pw1 9 // motor #1 pwm
+
+
+// Setting PWM properties
+const int freq = 30000;
+const int pwmChannel = 0;
+const int resolution = 8;
+int dutyCycle = 200;
+
+
+
 void setup() {
 pinMode(pin1, OUTPUT);
 pinMode(pin2, OUTPUT);
 pinMode(pw1, OUTPUT);
-Serial.begin(9600);
+
+// configure LED PWM functionalitites
+ledcSetup(pwmChannel, freq, resolution);
+  
+// attach the channel to the GPIO to be controlled
+ledcAttachPin(pw1, pwmChannel);
+
+Serial.begin(115200);
+
 digitalWrite(pin1, LOW);
 digitalWrite(pin2, LOW);
 analogWrite(pw1, 50);
