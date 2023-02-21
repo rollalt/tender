@@ -41,6 +41,11 @@ unsigned int val = (b * 256) + a;
 
 if (val == 100) // motor 1 reverse
 {
+// always stop motors briefly before abrupt changes
+digitalWrite(pin1, LOW);
+digitalWrite(pin2, LOW);
+delay(1000);
+// set the motor direction
 digitalWrite(pin1, LOW);
 //digitalWrite(pin2, HIGH);
 
@@ -52,6 +57,11 @@ digitalWrite(pin2, LOW);
 }
 else if (val == 300) // motor #1 forward
 {
+// always stop motors briefly before abrupt changes
+digitalWrite(pin1, LOW);
+digitalWrite(pin2, LOW);
+delay(1000);
+// set the motor direction
 digitalWrite(pin1, HIGH);
 //digitalWrite(pin2, LOW);
 }
@@ -60,6 +70,7 @@ digitalWrite(pin1, HIGH);
 
 else if (val >= 1000 && val <= 1255)
 {
+// set the motor speed
 ledcAttachPin (pin2, val – 1000);
 }
 
