@@ -59,7 +59,7 @@ digitalWrite(pin2, LOW);
 
 else if (val >= 1000 && val <= 1255)
 {
-analogWrite (pw1, val – 1000);
+ledcAttachPin (pw1, val – 1000);
 }
 
 }
