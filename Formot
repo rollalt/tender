@@ -1,0 +1,31 @@
+#include <analogWrite.h> 
+
+int A_1A=16; //L9110S馬達驅動板 A_1A腳 連接到ESP32的 GPIO16 
+int A_1B=17; //L9110S馬達驅動板 A_1B腳 連接到ESP32的 GPIO17
+
+void setup() {
+  pinMode(A_1A,OUTPUT);
+  pinMode(A_1B,OUTPUT);
+}
+
+void loop() {
+  
+  //風扇正轉，馬達的轉速由75逐漸上升
+  for (int i = 75; i < 255; i++) { 
+    analogWrite(A_1B,i); 
+    analogWrite(A_1A,LOW);
+    delay(100); 
+  }
+
+  //風扇反轉，馬達的轉速由75逐漸上升
+  for (int i = 75; i < 255; i++) { 
+    analogWrite(A_1B,LOW); 
+    analogWrite(A_1A,i);
+    delay(100); 
+  }
+  
+  //停止風扇轉動
+  analogWrite(A_1B,LOW); 
+  analogWrite(A_1A,LOW);
+  delay(3000);
+}
